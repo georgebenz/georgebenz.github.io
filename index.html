@@ -1,12 +1,57 @@
 <link rel="stylesheet" type="text/css" href="style.css" />
 
+<script type="text/javascript">
+
+  const POSTERS_PER_ROW = 12;
+  const RING_RADIUS = 200;
+
+  function setup_posters (row)
+  {
+    var ringString = 'soylent_pastures';
+    var posterAngle = 360 / POSTERS_PER_ROW;
+    for (var i = 0; i < POSTERS_PER_ROW; i ++) {
+      var poster = document.createElement('div');
+      poster.className = 'poster';
+      // compute and assign the transform for this poster
+      var transform = 'rotateY(' + (posterAngle * i) + 'deg) translateZ(' + RING_RADIUS + 'px)';
+      poster.style.webkitTransform = transform;
+      // setup the number to show inside the poster
+      var content = poster.appendChild(document.createElement('p'));
+      content.textContent = ringString[i%ringString.length];
+      // add the poster to the row
+      row.appendChild(poster);
+    }
+
+  }
+
+  function init ()
+  {
+    setup_posters(document.getElementById('ring-1'));
+    setup_posters(document.getElementById('ring-2'));
+    setup_posters(document.getElementById('ring-3'));
+  }
+
+  // call init once the document is fully loaded
+  window.addEventListener('load', init, false);
+
+</script>
+
 <h1>Slippy Records</h1>
-<h2>Soylent Pastures</h2>
+
+<div id="stage">
+  <div id="rotate">
+    <div class="square">
+      <div class="content">
+          <iframe width="100%" height="100%" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1319572750&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/soylentpastures" title="(っ◔◡◔)っ ♥ Soylent Pastures ♥" target="_blank" style="color: #cccccc; text-decoration: none;">(っ◔◡◔)っ ♥ Soylent Pastures ♥</a> · <a href="https://soundcloud.com/soylentpastures/sets/soylent-pastures-2-skrillionaire-mindset" title="Skrillionaire Mindset" target="_blank" style="color: #cccccc; text-decoration: none;">Skrillionaire Mindset</a></div>    </div>
+    </div>
+    <div id="ring-1" class="ring"></div>
+    <div id="ring-2" class="ring"></div>
+    <div id="ring-3" class="ring"></div>
+  </div>
+</div>
+
 
 <div class="center">
-<div class="square">
-    <div class="content">
-        <iframe width="100%" height="100%" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1319572750&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/soylentpastures" title="(っ◔◡◔)っ ♥ Soylent Pastures ♥" target="_blank" style="color: #cccccc; text-decoration: none;">(っ◔◡◔)っ ♥ Soylent Pastures ♥</a> · <a href="https://soundcloud.com/soylentpastures/sets/soylent-pastures-2-skrillionaire-mindset" title="Skrillionaire Mindset" target="_blank" style="color: #cccccc; text-decoration: none;">Skrillionaire Mindset</a></div>    </div>
-  </div>
+
 </div>
 
