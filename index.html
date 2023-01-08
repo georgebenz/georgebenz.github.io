@@ -53,7 +53,10 @@
     
 
     console.log(blur_amount);
-    document.body.style.filter = 'blur('+ blur_amount + 'px)';
+    var blur_elements = document.getElementsByClassName('blur');
+    for (var i = 0; i < blur_elements.length; i++){
+      blur_elements.item(i).style.filter = 'blur('+ blur_amount + 'px)';
+    }
   }
 
   function saturation_timer (){
@@ -68,8 +71,8 @@
 </script>
 
 <body>
-  <h1>Slippy Records</h1>
-  <h2>Soylent Pastures</h2>
+  <h1 class="blur">Slippy Records</h1>
+  <h2 class="blur">Soylent Pastures</h2>
 
   <div class="flex-container">
     <div class="flex-child magenta">
@@ -78,7 +81,7 @@
       </div>
     </div>
     
-    <div class="flex-child green">
+    <div class="flex-child green blur">
       <div id="stage">
         <div id="rotate">
           <p> PASHA, SLIMMY P, JACK FAY, MILES FORLORN</p>

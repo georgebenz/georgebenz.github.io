@@ -154,3 +154,7 @@ constructs.
 .flex-child:first-child {
   margin-right: 20px;
 } 
+
+.blur{
+  filter: blur(0px);
+}
